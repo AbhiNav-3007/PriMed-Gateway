@@ -1,0 +1,78 @@
+# PrivMed Gateway — Rigorous Test Dataset
+# 10 Clinical Notes covering all 18 HIPAA Safe Harbor categories
+# Paste each note into the Streamlit UI text box individually
+# ============================================================
+
+--- TEST 1: Basic Multi-Entity (Warmup) ---
+Patient James Harrington was admitted to St. Mary's Regional Medical Center on 03/15/2025.
+His MRN is MRN-47291 and date of birth is 07/22/1960.
+Phone: 617-555-0193. Emergency contact: 617-555-0147.
+Attending physician: Dr. Priya Mehta.
+Follow-up scheduled for 04/01/2025.
+
+--- TEST 2: SSN + Email + IP (Digital Identifiers) ---
+Patient: Linda Kowalczyk
+SSN: 542-88-1237
+Contact email: linda.kowalczyk@gmail.com
+Telemetry session IP recorded: 10.0.1.47
+Secondary device IP: 172.16.254.3
+DOB: 11/03/1978
+Treating doctor: Dr. Samuel Okafor
+
+--- TEST 3: Dense Multi-Entity (Stress Test) ---
+Discharge Summary — Patient Michael Tran, DOB: 02/14/1985, MRN: MRN-99042.
+Admitted: 08/10/2025. Discharged: 08/17/2025.
+SSN: 301-56-7890. Phone: 212-555-0178. Fax: 212-555-0179.
+Email: m.tran85@healthportal.net. IP: 192.168.0.55.
+Primary: Dr. Aisha Nwosu. Consulting: Dr. Fernando Castillo.
+Facility: Boston General Hospital, 300 Longwood Ave, Boston, MA 02115.
+
+--- TEST 4: Pediatric Note (Age + Names edge case) ---
+Patient: Noah Patel, 8 years old, DOB: 06/01/2017.
+Parent/Guardian: Kavya Patel, phone 404-555-0162.
+Guardian email: kavya.patel@outlook.com
+MRN: MRN-00812. Pediatrician: Dr. Samantha Brooks.
+Visited Springfield Children's Clinic on 09/05/2025.
+
+--- TEST 5: Age >89 HIPAA Special Case ---
+Patient: Margaret O'Sullivan, age 91.
+Date of Birth: 01/09/1934.
+MRN: MRN-10023. SSN: 078-05-1120.
+Contact: 305-555-0191. Physician: Dr. Richard Huang.
+Nursing facility: Sunrise Senior Care, 88 Palm Drive, Miami, FL 33101.
+
+--- TEST 6: Surgical Report (Doctor-heavy, Dates) ---
+Pre-operative note for patient Carlos Mendez, MRN: MRN-55104, DOB: 09/28/1972.
+Surgery scheduled: 10/10/2025. Surgeon: Dr. Elena Volkov.
+Anesthesiologist: Dr. James Park. Scrub nurse: Nurse Patricia Owens.
+Facility: Northwest Medical Centre, Seattle, WA.
+Patient SSN on file: 445-67-2301. Next of kin: Rosa Mendez, 503-555-0188.
+
+--- TEST 7: Mental Health Note (Sensitive Context) ---
+Psychiatric evaluation for patient Tyler Nguyen, age 34, DOB: 04/11/1991.
+MRN: MRN-73381. Emergency contact: David Nguyen, 718-555-0144.
+Email: t.nguyen91@securemail.com. SSN: 212-34-5678.
+Treating psychiatrist: Dr. Fatima Al-Rashid.
+Session date: 07/30/2025. Next session: 08/06/2025.
+
+--- TEST 8: Lab Report (Regex-heavy, Minimal Names) ---
+Lab results for MRN-62847 (Patient: Sandra Kofi).
+Sample collected: 2025-06-12. Results finalized: 2025-06-14.
+Ordering physician: Dr. Paul Okonkwo.
+Lab system IP: 10.10.5.21. Portal URL: https://labresults.hospitalnet.org/report/62847
+Contact for results: skofi.patient@webmail.com, 646-555-0131.
+
+--- TEST 9: Emergency Department Note (Speed + Accuracy) ---
+ED admission: 11/29/2025 02:43 AM. Patient: Rosa Martinez, DOB: 03/22/1990.
+MRN: MRN-38102. SSN: 567-89-0123. Phone: 510-555-0176.
+Brought in by: Juan Martinez (husband), 510-555-0177.
+Triage nurse: Nurse Kevin Walsh. ED physician: Dr. Yuki Tanaka.
+Hospital: Riverside General, 1200 Mission Blvd, Riverside, CA 92501.
+
+--- TEST 10: Complex Coreferencing (Same name, multiple mentions) ---
+Patient John Blackwood was referred by Dr. Lisa Fernandez.
+John Blackwood's DOB is 12/25/1965 and MRN is MRN-19203.
+Mr. Blackwood's SSN: 890-12-3456. Phone: 914-555-0183.
+Dr. Fernandez completed her assessment on 05/15/2025.
+John Blackwood should return on 06/15/2025 for a follow-up with Dr. Fernandez.
+Email on file: john.blackwood@familymail.net. IP: 192.168.1.200.
