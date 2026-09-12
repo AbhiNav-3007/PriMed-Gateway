@@ -21,7 +21,8 @@ st.set_page_config(
 
 # Header & Title
 st.title("🛡️ PrivMed Gateway — Clinical PHI/PII De-identification")
-st.caption("AI/ML Internship Assessment | Privacy-Preserving Clinical AI Gateway")
+st.caption("Enterprise Middleware | Privacy-Preserving Clinical AI Gateway")
+
 
 # Sidebar Configuration
 st.sidebar.header("⚙️ Gateway Settings")

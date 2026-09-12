@@ -1,6 +1,6 @@
 """
 PrivMed Gateway — Primary Gateway Interface Module
-Exposes deidentify() and rehydrate() functions per assessment specifications.
+Exposes top-level deidentify() and rehydrate() gateway functions.
 """
 
 from typing import Tuple, Dict, List, Any

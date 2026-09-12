@@ -1,6 +1,6 @@
 # 🛡️ PrivMed Gateway — Clinical PHI/PII De-identification Gateway
 
-> **LezDo TechMed AI/ML Internship Assessment — Project 2**  
+> **Enterprise-Grade HIPAA De-identification & Safe Rehydration Middleware**  
 > A privacy-preserving clinical AI gateway that strips protected health information (PHI/PII) across all 18 HIPAA Safe Harbor categories before forwarding de-identified text to foundation LLMs, and deterministically rehydrates the LLM response without destroying clinical utility or risking data leaks.
 
 ---
@@ -24,7 +24,7 @@ Healthcare clients want to utilize large foundation models (e.g. Google Gemini, 
 - **18 HIPAA Safe Harbor Category Coverage**: Names, Geographic Subdivisions, Dates, Phone, Fax, Email, SSN, MRN, Health Plan IDs, Account Numbers, License Numbers, Vehicle Plates, Device Serials, URLs, IP Addresses, Biometric IDs, Full-Face Photo exclusions, and Unique Codes.
 - **Sub-1B Parameter ML Model**: Fine-tuned **BERT-base-NER (~110M parameters)** token classification model using BIO tagging.
 - **Strict Privacy Security Guarantee**: Automated test suite (`test_security_phi_leak_to_llm`) audits prompt payloads sent to LLMs to verify 0.00% raw PHI leakage (`PHI_LEAK_TO_LLM` assertion).
-- **Placeholder Integrity Validator ([`src/validator.py`](file:///d:/STUDY%20MATERIAL/Internship/PrivMed%20Gateway/src/validator.py))**: Detects valid tokens, unknown tokens (`UNKNOWN_PLACEHOLDER`), malformed syntax (`<PERSON-001>`), and omitted tokens (`MISSING_FROM_RESPONSE`).
+- **Placeholder Integrity Validator (`src/validator.py`)**: Detects valid tokens, unknown tokens (`UNKNOWN_PLACEHOLDER`), malformed syntax (`<PERSON-001>`), and omitted tokens (`MISSING_FROM_RESPONSE`).
 - **Relative Date Shifting**: Optional date shifter (+100 days offset) preserving clinical treatment intervals.
 - **Document & Multi-Note Upload**: Built-in PDF & TXT parser with automatic multi-note chunking.
 - **Human Review Queue**: Confidence scoring categorizes detections into High/Medium/Low tiers for clinical review.
@@ -48,7 +48,7 @@ PrivMed-Gateway/
 ├── app.py                      # Interactive Streamlit Demo Web Application
 ├── api.py                      # FastAPI REST Web Service
 ├── evaluate.py                 # Benchmark Evaluation Suite (Precision/Recall/F1/Leak Rate)
-├── FAILURES.md                 # Graded Development Failure Log & Trade-off Analysis
+├── FAILURES.md                 # Development Failure Log & Trade-off Analysis
 ├── requirements.txt            # Python Dependencies
 ├── .env.example                # Environment Variable Template
 └── README.md                   # Project Documentation
@@ -58,7 +58,7 @@ PrivMed-Gateway/
 
 ## 📐 Required Interface Contract
 
-PrivMed Gateway exposes the top-level assessment interface functions in [`src/gateway.py`](file:///d:/STUDY%20MATERIAL/Internship/PrivMed%20Gateway/src/gateway.py):
+PrivMed Gateway exposes top-level interface functions in `src/gateway.py`:
 
 ```python
 from src.gateway import deidentify, rehydrate
@@ -96,8 +96,8 @@ Run `python evaluate.py` to benchmark all detection approaches side-by-side:
 ### 1. Installation
 Clone the repository and install the dependencies:
 ```bash
-git clone <your-repo-url>
-cd "PrivMed Gateway"
+git clone https://github.com/AbhiNav-3007/PriMed-Gateway.git
+cd PriMed-Gateway
 pip install -r requirements.txt
 ```
 
@@ -125,5 +125,7 @@ uvicorn api:app --reload
 
 ## 📜 Failure Log & Engineering Trade-offs
 
-Per Section 5 of the LezDo TechMed assessment brief, real development edge cases, model deserialization fixes, and security trade-offs are documented in [`FAILURES.md`](file:///d:/STUDY%20MATERIAL/Internship/PrivMed%20Gateway/FAILURES.md).
+Real development edge cases, model deserialization fixes, and security trade-offs are documented in [`FAILURES.md`](FAILURES.md).
+
+
 

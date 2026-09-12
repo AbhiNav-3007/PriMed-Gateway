@@ -1,6 +1,7 @@
 # PrivMed Gateway — Development Failures, Edge Cases & Trade-offs (FAILURES.md)
 
-> **Document Purpose**: As required by the LezDo TechMed Assessment Guidelines (Page 14), this document records technical failure modes, architectural trade-offs, edge cases, and lessons learned during the engineering of the PrivMed Gateway.
+> **Document Purpose**: This engineering document records technical failure modes, architectural trade-offs, edge cases, and lessons learned during the development and hardening of PrivMed Gateway.
+
 
 ---
 
