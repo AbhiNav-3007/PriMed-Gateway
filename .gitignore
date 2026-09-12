@@ -83,3 +83,12 @@ output/
 *.swp
 *.swo
 .DS_Store
+
+# Non-essential development assets & scratch files
+docs/
+tests/
+data/
+conftest.py
+prepare_dataset.py
+train.py
+

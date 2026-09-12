@@ -44,18 +44,13 @@ PrivMed-Gateway/
 │   ├── llm_client.py           # Multi-adapter LLM Client (Gemini API + Ollama + Mock)
 │   └── gateway.py              # Gateway Orchestrator: deidentify() & rehydrate()
 ├── model_checkpoints/          # Fine-tuned BERT-base Token Classifier (~110M params)
-│   └── privmed_ner_model/      # Model config, tokenizer, and safetensors weights
-├── tests/                      # Pytest Automated Test Suite (17 Tests)
-│   ├── test_gateway.py         # Integration, Security Leak, & Round-Trip Tests
-│   └── test_components.py      # Component, Regex, & Placeholder Corruption Tests
-├── data/                       # Test datasets & sample clinical records (.txt, .pdf)
-├── docs/                       # Architecture, HIPAA Matrix, and Label Specifications
+│   └── privmed_ner_model/      # Model config, tokenizer, and label mapping
 ├── app.py                      # Interactive Streamlit Demo Web Application
 ├── api.py                      # FastAPI REST Web Service
 ├── evaluate.py                 # Benchmark Evaluation Suite (Precision/Recall/F1/Leak Rate)
-├── train.py                    # Standalone PyTorch/Transformers Training Script
 ├── FAILURES.md                 # Graded Development Failure Log & Trade-off Analysis
 ├── requirements.txt            # Python Dependencies
+├── .env.example                # Environment Variable Template
 └── README.md                   # Project Documentation
 ```
 
@@ -126,14 +121,9 @@ uvicorn api:app --reload
 ```
 - Open `http://localhost:8000/docs` for interactive Swagger API testing endpoints (`/deidentify`, `/rehydrate`, `/process`).
 
-### 5. Run Automated Test Suite
-```bash
-pytest tests/ -v
-```
-Executes all 17 unit, integration, placeholder corruption, and security PHI leak tests (**17/17 PASSED**).
-
 ---
 
 ## 📜 Failure Log & Engineering Trade-offs
 
 Per Section 5 of the LezDo TechMed assessment brief, real development edge cases, model deserialization fixes, and security trade-offs are documented in [`FAILURES.md`](file:///d:/STUDY%20MATERIAL/Internship/PrivMed%20Gateway/FAILURES.md).
+
